@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+h2 {
+    padding-left: 20px;
+    font-family: cursive;
+    align-content: center;
+    background-color: #333;
+    height: 50px;
+    color: white;
+}
+
+body {
+    background: url(fon.png) no-repeat center center fixed;
+    background-size: cover;
+}
+.languages {
+    display: flex;
+    justify-content: center;
+
+}
+
+.languages img{
+    margin-top:30px;
+    padding: 0 70px;
+}
+
+.games{
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+}
+
+.games img {
+    width: 200px;
+    height: 150px;
+    max-height: 200px;
+    max-width: 200px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8), 0px 0px 30px rgba(173, 216, 230, 0.6);
+
+}
+
+.games button {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    width: 130px;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #4CAF50 0%, #087f23 100%);
+    box-shadow: 0 6px #065f18, 0 -6px #4CAF50 inset;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+    font-family: 'Intro', Arial, sans-serif;
+}
+
+.games h3 {
+    color:white;
+    font-size: 18px;
+    margin-top: 14px;
+    margin-bottom: 10px;
+}
+
+.games {
+    display: flex;
+    text-align: center;
+    margin-top:20px;
+}
+
+.game {
+    flex: 1 1 40%;
+    max-width: 210px;
+    margin: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:10px;
+}
+
+
+
+
+.dot {
+    position: absolute; /* Точки фиксированы на экране */
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    animation: dotAnimation 12s infinite;
+    opacity: 0; /* Начальная прозрачность */
+}
+
+/* Анимация для движения и появления точек */
+@keyframes dotAnimation {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0);
+    }
+    20% {
+        opacity: 1;
+        transform: translate(var(--x1), var(--y1)) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(var(--x2), var(--y2)) scale(1);
+    }
+    80% {
+        opacity: 1;
+        transform: translate(var(--x3), var(--y3)) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--x4), var(--y4)) scale(0);
+    }
+}
