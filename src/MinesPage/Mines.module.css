@@ -1,0 +1,114 @@
+/* Основной стиль для ПК */
+.kvadrat img {
+    width: 100px;
+    height: 100px;
+}
+
+.pole_iz_kvadratov {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
+
+.row {
+    background-color: #1c2530;
+    z-index: 2;
+}
+
+.just_a_big_kvadrat {
+    height: 550px;
+    width: 520px;
+    background-color: #1c2530;
+    position: absolute;
+    z-index: 1;
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button_mines {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: oldlace;
+    background-color: #007f84;
+    width: 500px;
+    text-align: center;
+}
+
+.counter {
+    position: absolute;
+    display: flex;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    cursor: pointer;
+    color: red;
+    background-color: #00656d;
+    border-radius: 15px;
+}
+
+.counter h3 {
+    display: flex;
+    align-items: center;
+    color: red;
+    padding: 0 180px;
+    text-align: center;
+}
+
+.counter button {
+    background: linear-gradient(145deg, #238fa9, #1b6c7f);
+    border: none;
+    color: white;
+    font-size: 28px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 15px;
+    user-select: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+    .just_a_big_kvadrat {
+        width: 340px;
+        height: 350px;
+        padding: 20px;
+    }
+
+    .button_mines {
+        width: 90%;
+        padding: 12px 20px;
+    }
+
+    .counter h3 {
+        padding: 0 60px;
+    }
+
+    .counter button {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .kvadrat img {
+        width: 80px;
+        height: 80px;
+    }
+}
+

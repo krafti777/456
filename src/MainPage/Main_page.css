@@ -15,7 +15,6 @@ h2 {
 }
 
 body {
-    background: url(fon.png) no-repeat center center fixed;
     background-size: cover;
 }
 .languages {
@@ -32,6 +31,7 @@ body {
 .games{
     flex-wrap: wrap;
     justify-content: center;
+    background: url(fon.png) no-repeat center center fixed;
     position: relative;
 }
 
@@ -67,11 +67,6 @@ body {
     margin-bottom: 10px;
 }
 
-.games {
-    display: flex;
-    text-align: center;
-    margin-top:20px;
-}
 
 .game {
     flex: 1 1 40%;
@@ -87,21 +82,32 @@ body {
 
 
 
+.games {
+    display: flex;
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    width: 100%;
+    height: 500px; /* Примерная высота для .games */
+    z-index: 10;
+}
+
 .dot {
-    position: absolute; /* Точки фиксированы на экране */
+    position: fixed;
     width: 20px;
     height: 20px;
     background-color: white;
     border-radius: 50%;
     animation: dotAnimation 12s infinite;
-    opacity: 0; /* Начальная прозрачность */
+    opacity: 0;
+    z-index: 1;
 }
 
 /* Анимация для движения и появления точек */
 @keyframes dotAnimation {
     0% {
         opacity: 0;
-        transform: translate(0, 0) scale(0);
+        transform: translateY(-100%) scale(0); /* Точка начинается сверху */
     }
     20% {
         opacity: 1;
@@ -109,14 +115,15 @@ body {
     }
     50% {
         opacity: 1;
-        transform: translate(var(--x2), var(--y2)) scale(1);
+        transform: translate(var(--x2), var(--y2)) scale(1.5); /* Увеличиваем масштаб */
     }
     80% {
         opacity: 1;
-        transform: translate(var(--x3), var(--y3)) scale(1);
+        transform: translate(var(--x3), var(--y3)) scale(1.5);
     }
     100% {
         opacity: 0;
         transform: translate(var(--x4), var(--y4)) scale(0);
     }
 }
+
