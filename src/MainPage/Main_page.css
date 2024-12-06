@@ -16,6 +16,7 @@ h2 {
 
 body {
     background-size: cover;
+    background: url(fon.png) no-repeat center center fixed;
 }
 .languages {
     display: flex;
@@ -31,7 +32,7 @@ body {
 .games{
     flex-wrap: wrap;
     justify-content: center;
-    background: url(fon.png) no-repeat center center fixed;
+
     position: relative;
 }
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import ".///Main_page.css"
+import "./Main_page.css"
 import { Link } from "react-router-dom";
 import fon from ".//fon.png"
 
@@ -56,8 +56,6 @@ export default function MainPage() {
     };
 
     return (
-        <body>
-
         <div className="main">
             <div className="shapka">
                 <h2>CASINO AI HACK</h2>
@@ -119,7 +117,7 @@ export default function MainPage() {
                 </div>
             </div>
         </div>
-        </body>
+
 
     );
 }
