@@ -2,6 +2,39 @@ import {useEffect, useState} from 'react';
 import  styles from './Mines.module.css'; // Импортируем стили как модуль
 
 export default function Mines() {
+
+    useEffect(() => {
+        const container = document.createElement('div');
+        container.id = 'animation-container';
+        document.body.appendChild(container);
+
+        const createDot = () => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+
+            const startX = Math.random() * window.innerWidth;
+            const startY = Math.random() * window.innerHeight;
+            const dx = Math.random() * 2 - 1; // от -1 до 1
+            const dy = Math.random() * 2 - 1; // от -1 до 1
+
+            dot.style.left = `${startX}px`;
+            dot.style.top = `${startY}px`;
+            dot.style.setProperty('--dx', dx);
+            dot.style.setProperty('--dy', dy);
+
+            container.appendChild(dot);
+            setTimeout(() => dot.remove(), 5000);
+        };
+
+        const interval = setInterval(createDot, 100);
+
+        return () => {
+            clearInterval(interval);
+            container.remove();
+        };
+    }, []);
+
+    
     useEffect(() => {
         document.body.style.background = 'black';
     }, []);
@@ -35,7 +68,7 @@ export default function Mines() {
             }
             SetGameStarted(true)
             const count_mines_on_board = 25
-            const mines_to_disappear = Math.floor(Math.random() * (count_mines_on_board - count + 1));
+            const mines_to_disappear = 5;
 
             let massive_to_disappear = []
             for (let i = 0; i < mines_to_disappear; i++) {

@@ -16,7 +16,7 @@ h2 {
 
 body {
     background-size: cover;
-    background: url(fon.png) no-repeat center center fixed;
+    background: black;
 }
 .languages {
     display: flex;
@@ -37,8 +37,8 @@ body {
 }
 
 .games img {
-    width: 200px;
-    height: 150px;
+    width: 170px;
+    height: 120px;
     max-height: 200px;
     max-width: 200px;
     border-radius: 50px;
@@ -90,41 +90,34 @@ body {
     position: relative;
     width: 100%;
     height: 500px; /* Примерная высота для .games */
-    z-index: 10;
+    z-index: 2;
+}
+
+
+#animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Чтобы точки не перекрывали основной контент */
 }
 
 .dot {
-    position: fixed;
-    width: 20px;
-    height: 20px;
+    position: absolute;
+    width: 5px;
+    height: 5px;
     background-color: white;
     border-radius: 50%;
-    animation: dotAnimation 12s infinite;
-    opacity: 0;
-    z-index: 1;
+    animation: fly 5s linear forwards;
 }
 
-/* Анимация для движения и появления точек */
-@keyframes dotAnimation {
-    0% {
+@keyframes fly {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(calc(100vw * var(--dx)), calc(100vh * var(--dy)));
         opacity: 0;
-        transform: translateY(-100%) scale(0); /* Точка начинается сверху */
-    }
-    20% {
-        opacity: 1;
-        transform: translate(var(--x1), var(--y1)) scale(1);
-    }
-    50% {
-        opacity: 1;
-        transform: translate(var(--x2), var(--y2)) scale(1.5); /* Увеличиваем масштаб */
-    }
-    80% {
-        opacity: 1;
-        transform: translate(var(--x3), var(--y3)) scale(1.5);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(var(--x4), var(--y4)) scale(0);
     }
 }
-
