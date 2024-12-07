@@ -34,7 +34,7 @@ export default function Mines() {
         };
     }, []);
 
-    
+
     useEffect(() => {
         document.body.style.background = 'black';
     }, []);

@@ -7,7 +7,6 @@
 
 h2 {
     padding-left: 20px;
-    font-family: cursive;
     align-content: center;
     background-color: #333;
     height: 50px;
@@ -37,8 +36,8 @@ body {
 }
 
 .games img {
-    width: 170px;
-    height: 120px;
+    width: 160px;
+    height: 110px;
     max-height: 200px;
     max-width: 200px;
     border-radius: 50px;
