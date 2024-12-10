@@ -3,70 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flying Dots</title>
+    <title>Динамичные линии</title>
     <style>
         body {
             margin: 0;
-            overflow: hidden;
-            background-color: black;
-        }
-
-        #animation-container {
-            position: relative;
-            width: 100vw;
             height: 100vh;
+            background-color: #111;
+            overflow: hidden;
         }
 
-        .dot {
+        .line {
             position: absolute;
-            width: 5px;
-            height: 5px;
+            width: 2px;
+            height: 120px;  /* Высота линии */
             background-color: white;
-            border-radius: 50%;
-            animation: fly 5s linear forwards;
+            animation: moveLine 15s infinite ease-in-out;
+            opacity: 1; /* Начальная непрозрачность */
         }
 
-        @keyframes fly {
-            from {
-                transform: translate(0, 0);
+        @keyframes moveLine {
+            0% {
+                transform: translateY(0); /* Начинает с верхней части экрана */
+                opacity: 1; /* Линия видима */
             }
-            to {
-                transform: translate(calc(100vw * (var(--dx, 1))), calc(100vh * (var(--dy, 1))));
-                opacity: 0;
+            25% {
+                transform: translateY(100vh); /* Линия движется вниз */
+                opacity: 0; /* Линия исчезает внизу */
+            }
+            50% {
+                transform: translateY(100vh); /* Линия остается внизу */
+                opacity: 0; /* Линия остаётся невидимой */
+            }
+            75% {
+                transform: translateY(0); /* Линия возвращается наверх */
+                opacity: 1; /* Линия становится видимой */
+            }
+            100% {
+                transform: translateY(-100vh); /* Линия исчезает в верхней части экрана */
+                opacity: 0; /* Линия становится невидимой */
             }
         }
     </style>
 </head>
 <body>
-<div id="animation-container"></div>
 <script>
-    const container = document.getElementById('animation-container');
+    // Массив для отслеживания текущих линий
+    const activeLines = [];
 
-    function createDot() {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
+    // Функция для создания новой линии
+    function createLine() {
+        // Проверка на количество активных линий (не больше 10)
+        if (activeLines.length >= 10) {
+            return; // Если линий уже 10, новая линия не создается
+        }
 
-        // Устанавливаем случайные начальные позиции
-        const startX = Math.random() * window.innerWidth;
-        const startY = Math.random() * window.innerHeight;
+        const line = document.createElement('div');
+        line.classList.add('line');
 
-        // Устанавливаем случайные направления движения
-        const dx = Math.random() * 2 - 1; // от -1 до 1
-        const dy = Math.random() * 2 - 1; // от -1 до 1
+        // Случайное позиционирование линии
+        const leftPosition = Math.random() * 100; // Позиция от 0 до 100%
+        line.style.left = `${leftPosition}%`;
 
-        dot.style.left = `${startX}px`;
-        dot.style.top = `${startY}px`;
-        dot.style.setProperty('--dx', dx);
-        dot.style.setProperty('--dy', dy);
+        // Добавление линии на страницу
+        document.body.appendChild(line);
 
-        container.appendChild(dot);
+        // Добавление линии в массив активных линий
+        activeLines.push(line);
 
-        // Удаляем точку после завершения анимации
-        setTimeout(() => dot.remove(), 5000);
+        // Удаление линии после завершения анимации
+        setTimeout(() => {
+            line.remove();
+            // Удаление линии из массива активных линий
+            const index = activeLines.indexOf(line);
+            if (index !== -1) {
+                activeLines.splice(index, 1);
+            }
+        }, 15000); // Удаляется через 15 секунд (длительность анимации)
     }
 
-    // Генерируем точки каждые 100 мс
-    setInterval(createDot, 100);
+    // Создание линий с интервалом
+    setInterval(createLine, 1000); // Каждую секунду создается новая линия
 </script>
 </body>
 </html>

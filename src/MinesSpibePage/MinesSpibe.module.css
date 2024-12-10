@@ -1,0 +1,288 @@
+/* Основной стиль для ПК */
+.kvadrat img {
+    width: 100px;
+    height: 70px;
+}
+
+.pole_iz_kvadratov {
+    margin-left: -15px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    top: -10%;
+
+    height: 100vh;
+    position: absolute;
+}
+
+.row {
+    z-index: 3;
+}
+
+.just_a_big_kvadrat {
+    border: 2px solid white;
+    box-shadow: 0px 0px 13px white;
+    z-index: 2;
+    height: 400px;
+    width: 520px;
+    position: absolute;
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.choose_amount h2{
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    left: 50%   ;
+    background-color: grey;
+    top: 80%;
+    position: absolute;
+}
+
+.button_mines {
+    position: absolute;
+    top: 730px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: linear-gradient(228deg, #fff80d, #f8f99c);
+    border-bottom: 3px solid #9fb32f;
+    box-shadow: 0px 0px 28px yellow;
+    width: 350px;
+    text-align: center;
+}
+.back {
+    position: absolute;
+    top: 800px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: linear-gradient(228deg, #fff80d, #f8f99c);
+    border-bottom: 3px solid #9fb32f;
+    box-shadow: 0px 0px 28px yellow;
+    width: 300px;
+    text-align: center;
+}
+
+.mine_row1 {
+    display: inline-flex;
+    position:absolute;
+    top: 83%;
+    left: 53%;
+    transform: translateX(-50%);
+}
+
+.mine_row1 span{
+    transform: translateX(-50%);
+    border: 2px solid white;
+    border-radius: 13px;
+    width: 70px;
+    text-align: center;
+    margin-right: 20px;
+    padding-top: 10px;
+}
+
+.mine_row2 span{
+    transform: translateX(-50%);
+    border: 2px solid white;
+    border-radius: 13px;
+    width: 70px;
+    text-align: center;
+    margin-right: 20px;
+    padding-top: 10px;
+}
+
+.mine_row2 {
+    display: inline-flex;
+    position:absolute;
+    top: 89%;
+    left: 53%;
+    transform: translateX(-50%);
+}
+
+.dollar img{
+    width: 120px;
+    position: absolute;
+    left: 65%;
+    animation: tilt 20s infinite;
+}
+
+
+.bomb img{
+    width: 200px;
+    position: absolute;
+    left: 20%;
+    bottom: 0%;
+    animation: tilt 15s infinite;
+}
+
+@keyframes tilt {
+    0% {
+        transform: rotate(0deg); /* Начальное положение */
+    }
+    25% {
+        transform: rotate(-20deg); /* Наклон влево */
+    }
+    50% {
+        transform: rotate(0deg); /* Вернуться в центр */
+    }
+    75% {
+        transform: rotate(20deg); /* Наклон вправо */
+    }
+    100% {
+        transform: rotate(0deg); /* Вернуться в центр */
+    }
+}
+/*.counter {*/
+/*    position: absolute;*/
+/*    display: flex;*/
+/*    top: 90%;*/
+/*    left: 50%;*/
+/*    transform: translateX(-50%);*/
+/*    border: none;*/
+/*    cursor: pointer;*/
+/*    color: red;*/
+/*    background-color: #00656d;*/
+/*    border-radius: 15px;*/
+/*    z-index : 2*/
+/*}*/
+
+/*.counter h3 {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    color: red;*/
+/*    padding: 0 180px;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.counter button {*/
+/*    background: linear-gradient(145deg, #238fa9, #1b6c7f);*/
+/*    border: none;*/
+/*    color: white;*/
+/*    font-size: 28px;*/
+/*    width: 60px;*/
+/*    height: 60px;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    cursor: pointer;*/
+/*    border-radius: 15px;*/
+/*    user-select: none;*/
+/*    transition: background 0.3s ease, transform 0.2s ease;*/
+/*    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);*/
+
+/*}*/
+
+.button_mines {
+    z-index: 2;
+}
+.cum_back {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: 0%;
+    top: 99.7%;
+    z-index: 3;
+}
+
+.text {
+    transform: translateX(-50%);
+    position: absolute;
+    left: 800px;
+    margin-top: 20px;
+}
+.text h1 {
+    transform: translateX(-50%);
+    color: white;
+    font-weight: bold;
+    text-shadow: 0px 0px 10px black;
+}
+
+.text h3  {
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    margin-left: 40px;
+}
+
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+    .pole_iz_kvadratov {
+        height: 80vh;
+    }
+
+    .bomb img{
+        width: 120px;
+        position: absolute;
+        left: 5%;
+        bottom: 13%;
+        animation: tilt 15s infinite;
+        z-index: 3;
+    }
+
+    .dollar img{
+        width: 80px;
+        left: 80%;
+    }
+
+    .text {
+        white-space: nowrap;
+        left: 280px;
+    }
+    .just_a_big_kvadrat {
+        width: 380px;
+        height: 300px;
+        padding: 20px;
+        left: 210px;
+        border-radius: 20px;
+    }
+    .button_mines {
+        width: 90%;
+        padding: 12px 20px;
+    }
+    .counter h3 {
+        padding: 0 60px;
+    }
+    .counter button {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    .kvadrat img {
+        width: 70px;
+        height: 50px;
+    }
+    .counter {
+        margin-top: -10px;
+    }
+
+    .mine_row1 {
+        left: 57%;
+    }
+    .mine_row2{
+        left: 57%;
+    }
+    .mine_row1 span{
+        width: 50px;
+    }
+    .mine_row2 span{
+        width: 50px;
+    }
+
+    .button_mines  {
+        top: 600px;
+    }
+    .back{
+        top: 680px;
+    }
+}
+
